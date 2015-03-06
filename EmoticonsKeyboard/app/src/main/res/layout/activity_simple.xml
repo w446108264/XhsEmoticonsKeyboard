@@ -1,0 +1,73 @@
+<RelativeLayout
+    android:id="@+id/main"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/base_bg_gray"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/ic_header"
+        layout="@layout/ic_header"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ic_header"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <com.keyboard.view.EmoticonsEditText
+            android:id="@+id/et_content"
+            style="@style/face_editview"
+            android:hint="@string/faceeditext_hint">
+        </com.keyboard.view.EmoticonsEditText>
+
+        <include
+            android:id="@+id/ic_spitview"
+            layout="@layout/ic_spitview"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_at"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:gravity="center"
+                android:paddingLeft="@dimen/margin_middle"
+                android:paddingRight="@dimen/margin_middle"
+                android:text="@string/richkeyboard_refer"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_big"/>
+
+            <TextView
+                android:id="@+id/tv_topic"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_toRightOf="@+id/tv_at"
+                android:gravity="center"
+                android:paddingLeft="@dimen/margin_middle"
+                android:paddingRight="@dimen/margin_middle"
+                android:text="@string/richkeyboard_topic"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_big"/>
+
+            <ImageView
+                android:id="@+id/iv_face"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:layout_toRightOf="@+id/tv_topic"
+                android:paddingLeft="@dimen/margin_middle"
+                android:paddingRight="@dimen/margin_middle"
+                android:src="@drawable/icon_emotion" />
+        </RelativeLayout>
+
+        <include layout="@layout/ic_spitview"/>
+    </LinearLayout>
+</RelativeLayout>

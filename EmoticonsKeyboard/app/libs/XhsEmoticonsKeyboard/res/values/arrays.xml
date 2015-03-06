@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="apps_func">
+        <item>图片</item>
+        <item>拍照</item>
+    </string-array>
+
+    <string-array name="apps_func_icon">
+        <item>icon_photo</item>
+        <item>icon_camera</item>
+    </string-array>
+</resources>

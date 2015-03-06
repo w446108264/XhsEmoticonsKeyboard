@@ -1,0 +1,54 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#e9e9e9"
+                tools:context=".MainActivity">
+
+    <include
+        android:id="@+id/ic_header"
+        layout="@layout/ic_header"/>
+
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
+        <com.keyboard.utils.FunnyPicturesView
+            android:id="@+id/fpv_image"
+            android:layout_width="250dp"
+            android:layout_height="250dp">
+        </com.keyboard.utils.FunnyPicturesView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/margin_nomal"
+            android:text="446108264"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/margin_nomal"
+            android:layout_centerHorizontal="true"
+            android:text="shengjun8486@gmail.com"/>
+
+        <TextView
+            android:id="@+id/tv_download"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/margin_nomal"
+            android:text="下载小红书"/>
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>

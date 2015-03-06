@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<View
+    android:id="@+id/v_spit"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/verticalspit_view_width"
+    android:layout_height="fill_parent"
+    android:background="@color/toolbar_spilt_line"/>

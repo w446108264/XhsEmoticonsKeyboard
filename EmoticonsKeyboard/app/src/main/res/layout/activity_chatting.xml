@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.keyboard.XhsEmoticonsKeyBoardBar
+    android:id="@+id/kv_bar"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/ic_header"
+            layout="@layout/ic_header"/>
+
+        <ListView
+            android:id="@+id/lv_chat"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="#e9e9e9"
+            android:cacheColorHint="#00000000"
+            android:fadingEdge="none"
+            android:listSelector="#00000000"
+            android:divider="@null"
+            android:scrollingCache="false"
+            android:stackFromBottom="true"
+            android:scrollbarStyle="outsideOverlay"
+            android:smoothScrollbar="true"   />
+    </LinearLayout>
+</com.keyboard.XhsEmoticonsKeyBoardBar>

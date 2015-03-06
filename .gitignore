@@ -1,5 +1,14 @@
-# Built application files
-*.apk
+
+/local.properties
+/.idea/workspace.xml 
+/.idea/workspace.xml
+.idea/ 
+build
+gen 
+.metadata
+out/
+
+# Built application files 
 *.ap_
 
 # Files for the Dalvik VM
@@ -15,6 +24,19 @@ gen/
 # Gradle files
 .gradle/
 build/
+ 
+# Intellij project files
+*.iml
+*.ipr
+*.iws
+.idea/ 
+
+# Java class files
+*.class
+
+# Eclipse project files
+.classpath
+.project
 
 # Local configuration file (sdk path, etc)
 local.properties
