@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="btn_text_send">发送</string>
+    <string name="btn_text_speak">按住录音</string>
+    <string name="btn_text_speak_over">松开结束</string>
+</resources>

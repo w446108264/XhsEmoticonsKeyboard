@@ -1,34 +1,67 @@
 # XhsEmoticonsKeyboard
- 
-1.automatically adjust the height of software keyboard 
- 
-2.support to load the emotion with res,assets,file,http,user-defined 
 
-3.module design, highly flexibility and customize as your want
- 
-## Simple
-![](https://raw.githubusercontent.com/w446108264/XhsEmoticonsKeyboard/master/output/simple.png)
+> j.s 🇨🇳
 
-```java
-EmoticonsKeyBoardPopWindow mKeyBoardPopWindow = new EmoticonsKeyBoardPopWindow(SimpleActivity.this); 
-mKeyBoardPopWindow.setBuilder(EmoticonsUtils.getSimpleBuilder(this));  
-mKeyBoardPopWindow.setEditText(et_content);   
-mKeyBoardPopWindow.showPopupWindow();  
+也许是最良心的开源表情键盘解决方案。
+
+# Features
+
+* API > 9 
+* 表情键盘支持无闪烁自跟随系统软键盘高度,及支持自定义高度
+* 表情支持自定义格式,支持任意来源
+* 组件支持完全自定义,样式支持任意更改
+* 默认微信键盘样式
+* 赠QQ键盘高仿,不谢
+
+
+# Emoji
+
+「 [w446108264/AndroidEmoji](https://github.com/w446108264/AndroidEmoji) 」
+ 
+## Screen Recod
+
+<img src="output/chat-qqemoticon.png" width="32%" /> 
+<img src="output/chat-qqplug.png" width="32%" /> 
+<img src="output/chat-qqfav.png" width="32%" /> 
+
+<img src="output/chat-bigimage.png" width="32%" /> 
+<img src="output/chat-userdefui.png" width="32%" /> 
+<img src="output/chat-text.png" width="32%" /> 
+
+<img src="output/simple-comment.png" width="32%" /> 
+<img src="output/main.png" width="32%" />  
+
+  
+# Samples
+
+You can [download a sample APK](https://github.com/w446108264/XhsEmoticonsKeyboard/raw/master/output/simple.apk) 
+
+
+# Gradle Dependency
+
+Users of your library will need add the jitpack.io repository:
+
+```xml  
+allprojects {
+    repositories {
+        jcenter()
+        maven { url "https://jitpack.io" }
+    }
+}
 ```
 
-## ChattingList
-![](https://raw.githubusercontent.com/w446108264/XhsEmoticonsKeyboard/master/output/list.gif)
+and:
 
-use XhsEmoticonsKeyBoardBar or create your EmoticonsKeyBoardBar
+```xml
+dependencies { 
+    compile 'com.github.w446108264:XhsEmoticonsKeyboard:2.0.0'
+}
+```
  
-## Building in Eclipse
+# Contact & Help
 
-![Go home you're drunk](http://img2.wikia.nocookie.net/__cb20130819142928/cardfight/images/thumb/5/55/Go-home-youre-drunk.jpg/500px-Go-home-youre-drunk.jpg)
+Please fell free to contact me if there is any problem when using the library.
 
-please building in android studio or Intellij 
+* email: shengjun8486@gmail.com 
 
-## Download
 
-[APK下载](https://raw.githubusercontent.com/w446108264/XhsEmoticonsKeyboard/master/output/XhsEmoticonsKeyboard.apk)
-
-![](https://raw.githubusercontent.com/w446108264/XhsEmoticonsKeyboard/master/output/downloadqrcode.png)

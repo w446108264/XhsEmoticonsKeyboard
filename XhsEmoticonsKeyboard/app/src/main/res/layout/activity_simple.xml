@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="com.xhsemoticonskeyboard.MainActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/XhsEmoticonsKeyboardTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/XhsEmoticonsKeyboardTheme.PopupOverlay" />
+
+    </android.support.design.widget.AppBarLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:showIn="@layout/activity_simple">
+
+        <sj.keyboard.widget.EmoticonsEditText
+            android:id="@+id/et_content"
+            style="@style/emotion_editview"
+            android:hint="@string/emotioneditext_hint" />
+
+        <include
+            android:id="@+id/ic_spitview"
+            layout="@layout/ic_spitview" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_at"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:gravity="center"
+                android:paddingLeft="@dimen/margin_middle"
+                android:paddingRight="@dimen/margin_middle"
+                android:text="@string/richkeyboard_refer"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_big" />
+
+            <TextView
+                android:id="@+id/tv_topic"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_toRightOf="@+id/tv_at"
+                android:gravity="center"
+                android:paddingLeft="@dimen/margin_middle"
+                android:paddingRight="@dimen/margin_middle"
+                android:text="@string/richkeyboard_topic"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_big" />
+
+            <ImageView
+                android:id="@+id/iv_face"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_toRightOf="@+id/tv_topic"
+                android:gravity="center"
+                android:paddingLeft="@dimen/margin_middle"
+                android:paddingRight="@dimen/margin_middle"
+                android:src="@mipmap/icon_emotion" />
+        </RelativeLayout>
+
+        <include layout="@layout/ic_spitview" />
+    </LinearLayout>
+
+</android.support.design.widget.CoordinatorLayout>

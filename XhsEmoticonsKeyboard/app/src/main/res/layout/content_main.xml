@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.xhsemoticonskeyboard.MainActivity"
+    tools:showIn="@layout/activity_main">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/btn_simple_comment"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:text="Simple Comment Keyboard"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btn_simple_chat"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btn_simple_comment"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:text="Simple Chat Keyboard"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btn_simple_chat_coordinatorlayout"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btn_simple_chat"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:text="Simple Chat CoordinatorLayout Keyboard"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btn_userdef_ui"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btn_simple_chat_coordinatorlayout"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:text="Simpe Change UI Keyboard"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btn_qq"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btn_userdef_ui"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:text="QQ Keyboard"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btn_github"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btn_qq"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:text="Github"
+            android:textAllCaps="false" />
+    </RelativeLayout>
+
+</ScrollView>
