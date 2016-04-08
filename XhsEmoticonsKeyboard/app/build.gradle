@@ -8,13 +8,29 @@ android {
         applicationId "com.xhsemoticonskeyboard"
         minSdkVersion 9
         targetSdkVersion 23
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName "2.0.1"
+    }
+
+    signingConfigs {
+        release {
+            storeFile file("../XhsEmoticonKeyboard.jks")
+            storePassword "XhsEmoticonKeyboard"
+            keyAlias "XhsEmoticonKeyboard"
+            keyPassword "XhsEmoticonKeyboard"
+        }
     }
     buildTypes {
         release {
-            minifyEnabled false
+            signingConfig signingConfigs.release
+            minifyEnabled true
+            shrinkResources true
+            zipAlignEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            minifyEnabled false
         }
     }
 }
