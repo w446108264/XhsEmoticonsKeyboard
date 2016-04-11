@@ -1,5 +1,6 @@
 package sj.keyboard.widget;
 
+import android.app.Activity;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.util.SparseArray;
@@ -50,13 +51,21 @@ public class FuncLayout extends LinearLayout {
     public void toggleFuncView(int key, boolean isSoftKeyboardPop, EditText editText) {
         if (getCurrentFuncKey() == key) {
             if (isSoftKeyboardPop) {
-                EmoticonsKeyboardUtils.closeSoftKeyboard(getContext());
+                if(EmoticonsKeyboardUtils.isFullScreen((Activity) getContext())){
+                    EmoticonsKeyboardUtils.closeSoftKeyboard(editText);
+                } else {
+                    EmoticonsKeyboardUtils.closeSoftKeyboard(getContext());
+                }
             } else {
                 EmoticonsKeyboardUtils.openSoftKeyboard(editText);
             }
         } else {
             if (isSoftKeyboardPop) {
-                EmoticonsKeyboardUtils.closeSoftKeyboard(getContext());
+                if(EmoticonsKeyboardUtils.isFullScreen((Activity) getContext())){
+                    EmoticonsKeyboardUtils.closeSoftKeyboard(editText);
+                } else {
+                    EmoticonsKeyboardUtils.closeSoftKeyboard(getContext());
+                }
             }
             showFuncView(key);
         }

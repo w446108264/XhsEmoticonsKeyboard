@@ -1,10 +1,13 @@
 package sj.keyboard;
 
+import android.app.Activity;
 import android.content.Context;
+import android.graphics.Rect;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -59,11 +62,11 @@ public class XhsEmoticonsKeyBoard extends AutoHeightLayout implements View.OnCli
         initFuncView();
     }
 
-    protected void inflateKeyboardBar(){
+    protected void inflateKeyboardBar() {
         mInflater.inflate(R.layout.view_keyboard_xhs, this);
     }
 
-    protected View inflateFunc(){
+    protected View inflateFunc() {
         return mInflater.inflate(R.layout.view_func_emoticon, null);
     }
 
@@ -151,7 +154,7 @@ public class XhsEmoticonsKeyBoard extends AutoHeightLayout implements View.OnCli
     }
 
     public void reset() {
-        EmoticonsKeyboardUtils.closeSoftKeyboard(getContext());
+        EmoticonsKeyboardUtils.closeSoftKeyboard(this);
         mLyKvml.hideAllFuncView();
         mBtnFace.setImageResource(com.keyboard.view.R.drawable.icon_face_nomal);
     }
@@ -190,7 +193,7 @@ public class XhsEmoticonsKeyBoard extends AutoHeightLayout implements View.OnCli
         checkVoice();
     }
 
-    protected void setFuncViewHeight(int height){
+    protected void setFuncViewHeight(int height) {
         LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) mLyKvml.getLayoutParams();
         params.height = height;
         mLyKvml.setLayoutParams(params);
@@ -287,13 +290,36 @@ public class XhsEmoticonsKeyBoard extends AutoHeightLayout implements View.OnCli
         return super.dispatchKeyEvent(event);
     }
 
-    public EmoticonsEditText getEtChat() {
-        return mEtChat;
+    @Override
+    public boolean requestFocus(int direction, Rect previouslyFocusedRect) {
+        if (EmoticonsKeyboardUtils.isFullScreen((Activity) getContext())) {
+            return false;
+        }
+        return super.requestFocus(direction, previouslyFocusedRect);
     }
 
-    public Button getBtnVoice() {
-        return mBtnVoice;
+    @Override
+    public void requestChildFocus(View child, View focused) {
+        if (EmoticonsKeyboardUtils.isFullScreen((Activity) getContext())) {
+            return;
+        }
+        super.requestChildFocus(child, focused);
     }
+
+    public boolean dispatchKeyEventInFullScreen(KeyEvent event) {
+        switch (event.getKeyCode()) {
+            case KeyEvent.KEYCODE_BACK:
+                if (EmoticonsKeyboardUtils.isFullScreen((Activity) getContext()) && mLyKvml.isShown()) {
+                    reset();
+                    return true;
+                }
+        }
+        return false;
+    }
+
+    public EmoticonsEditText getEtChat() { return mEtChat; }
+
+    public Button getBtnVoice() { return mBtnVoice; }
 
     public Button getBtnSend() {
         return mBtnSend;

@@ -7,6 +7,7 @@ import android.preference.PreferenceManager;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -63,8 +64,14 @@ public class EmoticonsKeyboardUtils {
         }
     }
 
+    public static boolean isFullScreen(final Activity activity) {
+        return (activity.getWindow().getAttributes().flags &
+                WindowManager.LayoutParams.FLAG_FULLSCREEN) != 0;
+    }
+
     /**
      * 开启软键盘
+     * @param et
      */
     public static void openSoftKeyboard(EditText et) {
         if (et != null) {
@@ -78,16 +85,32 @@ public class EmoticonsKeyboardUtils {
 
     /**
      * 关闭软键盘
+     * @param context
      */
     public static void closeSoftKeyboard(Context context) {
         if (context == null || !(context instanceof Activity) || ((Activity) context).getCurrentFocus() == null) {
             return;
         }
-        try {
-            InputMethodManager inputMethodManager = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
-            inputMethodManager.hideSoftInputFromWindow(((Activity) context).getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
-        } catch (Exception e) {
+        try{
+            View view = ((Activity) context).getCurrentFocus();
+            InputMethodManager imm = (InputMethodManager) view.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+            view.clearFocus();
+            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        } catch (Exception e){
             e.printStackTrace();
         }
+    }
+
+    /**
+     * 关闭软键盘
+     * 当使用全屏主题的时候,XhsEmoticonsKeyBoard屏蔽了焦点.关闭软键盘时,直接指定 closeSoftKeyboard(EditView)
+     * @param view
+     */
+    public static void closeSoftKeyboard(View view) {
+        if (view == null || view.getWindowToken() == null) {
+            return;
+        }
+        InputMethodManager imm = (InputMethodManager) view.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 }

@@ -5,7 +5,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextUtils;
+import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.AbsListView;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -26,6 +30,7 @@ import butterknife.ButterKnife;
 import sj.keyboard.XhsEmoticonsKeyBoard;
 import sj.keyboard.data.EmoticonEntity;
 import sj.keyboard.interfaces.EmoticonClickListener;
+import sj.keyboard.utils.EmoticonsKeyboardUtils;
 import sj.keyboard.widget.EmoticonsEditText;
 import sj.keyboard.widget.FuncLayout;
 
@@ -40,6 +45,8 @@ public class SimpleChatActivity extends AppCompatActivity implements FuncLayout.
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_simple_chat);
         ButterKnife.bind(this);
         toolbar.setTitle("Simple Chat Keyboard");
@@ -116,6 +123,15 @@ public class SimpleChatActivity extends AppCompatActivity implements FuncLayout.
             }
         }
     };
+
+    @Override
+    public boolean dispatchKeyEvent(KeyEvent event) {
+        if(EmoticonsKeyboardUtils.isFullScreen(this)){
+            boolean isConsum = ekBar.dispatchKeyEventInFullScreen(event);
+            return isConsum ? isConsum : super.dispatchKeyEvent(event);
+        }
+        return super.dispatchKeyEvent(event);
+    }
 
     private void initListView() {
         chattingListAdapter = new ChattingListAdapter(this);
