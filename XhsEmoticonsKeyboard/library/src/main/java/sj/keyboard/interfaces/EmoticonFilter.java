@@ -48,4 +48,16 @@ public abstract class EmoticonFilter {
             return null;
         }
     }
+
+    public static Drawable getDrawable(Context context, int emoticon) {
+        if(emoticon <= 0){
+            return null;
+        }
+        try {
+            return Build.VERSION.SDK_INT >= 21 ? context.getResources().getDrawable(emoticon, (Resources.Theme) null) : context.getResources().getDrawable(emoticon);
+        } catch (Exception var4) {
+            var4.printStackTrace();
+            return null;
+        }
+    }
 }

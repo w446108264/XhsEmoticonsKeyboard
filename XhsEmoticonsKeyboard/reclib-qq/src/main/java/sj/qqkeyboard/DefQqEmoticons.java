@@ -7,92 +7,49 @@ import java.util.HashMap;
  */
 public class DefQqEmoticons {
 
-    public static String[] qqEmoticonArray = {
-            "ecf.png,[ecf]",
-            "ecv.png,[ecv]",
-            "ecb.png,[ecb]",
-            "ecy.png,[ecy]",
-            "ebu.png,[ebu]",
-            "ebr.png,[ebr]",
-            "ecc.png,[ecc]",
-            "eft.png,[eft]",
-            "ecr.png,[ecr]",
-            "ebs.png,[ebs]",
-            "ech.png,[ech]",
-            "ecg.png,[ecg]",
-            "ebh.png,[ebh]",
-            "ebg.png,[ebg]",
-            "ecp.png,[ecp]",
-            "deg.png,[deg]",
-            "ecd.png,[ecd]",
-            "ecj.png,[ecj]",
-            "ebv.png,[ebv]",
-            "ece.png,[ece]",
-            "ebl.png,[ebl]",
-            "eca.png,[eca]",
-            "ecn.png,[ecn]",
-            "eco.png,[eco]",
-            "eeo.png,[eeo]",
-            "eep.png,[eep]",
-            "eci.png,[eci]",
-            "ebj.png,[ebj]",
-            "eer.png,[eer]",
-            "edi.png,[edi]",
-            "ebq.png,[ebq]",
-            "eeq.png,[eeq]",
-            "ecq.png,[ecq]",
-            "ebt.png,[ebt]",
-            "ede.png,[ede]",
-            "eew.png,[eew]",
-            "eex.png,[eex]",
-            "dga.png,[dga]",
-            "ebp.png,[ebp]",
-            "ebo.png,[ebo]"};
-
-
-    public static final HashMap<String, String> sQqEmoticonHashMap = new HashMap<>();
+    public static final HashMap<String, Integer> sQqEmoticonHashMap = new HashMap<>();
 
     static {
-        sQqEmoticonHashMap.put("[ecf]","ecf.png");
-        sQqEmoticonHashMap.put("[ecv]","ecv.png");
-        sQqEmoticonHashMap.put("[ecb]","ecb.png");
-        sQqEmoticonHashMap.put("[ecy]","ecy.png");
-        sQqEmoticonHashMap.put("[ebu]","ebu.png");
-        sQqEmoticonHashMap.put("[ebr]","ebr.png");
-        sQqEmoticonHashMap.put("[ecc]","ecc.png");
-        sQqEmoticonHashMap.put("[eft]","eft.png");
-        sQqEmoticonHashMap.put("[ecr]","ecr.png");
-        sQqEmoticonHashMap.put("[ebs]","ebs.png");
-        sQqEmoticonHashMap.put("[ech]","ech.png");
-        sQqEmoticonHashMap.put("[ecg]","ecg.png");
-        sQqEmoticonHashMap.put("[ebh]","ebh.png");
-        sQqEmoticonHashMap.put("[ebg]","ebg.png");
-        sQqEmoticonHashMap.put("[ecp]","ecp.png");
-        sQqEmoticonHashMap.put("[deg]","deg.png");
-        sQqEmoticonHashMap.put("[ecd]","ecd.png");
-        sQqEmoticonHashMap.put("[ecj]","ecj.png");
-        sQqEmoticonHashMap.put("[ebv]","ebv.png");
-        sQqEmoticonHashMap.put("[ece]","ece.png");
-        sQqEmoticonHashMap.put("[ebl]","ebl.png");
-        sQqEmoticonHashMap.put("[eca]","eca.png");
-        sQqEmoticonHashMap.put("[ecn]","ecn.png");
-        sQqEmoticonHashMap.put("[eco]","eco.png");
-        sQqEmoticonHashMap.put("[eeo]","eeo.png");
-        sQqEmoticonHashMap.put("[eep]","eep.png");
-        sQqEmoticonHashMap.put("[eci]","eci.png");
-        sQqEmoticonHashMap.put("[ebj]","ebj.png");
-        sQqEmoticonHashMap.put("[eer]","eer.png");
-        sQqEmoticonHashMap.put("[edi]","edi.png");
-        sQqEmoticonHashMap.put("[ebq]","ebq.png");
-        sQqEmoticonHashMap.put("[eeq]","eeq.png");
-        sQqEmoticonHashMap.put("[ecq]","ecq.png");
-        sQqEmoticonHashMap.put("[ebt]","ebt.png");
-        sQqEmoticonHashMap.put("[ede]","ede.png");
-        sQqEmoticonHashMap.put("[eew]","eew.png");
-        sQqEmoticonHashMap.put("[eex]","eex.png");
-        sQqEmoticonHashMap.put("[dga]","dga.png");
-        sQqEmoticonHashMap.put("[ebp]","ebp.png");
-        sQqEmoticonHashMap.put("[ebo]","ebo.png");
+        sQqEmoticonHashMap.put("[ecf]",R.mipmap.ecf);
+        sQqEmoticonHashMap.put("[ecv]",R.mipmap.ecv);
+        sQqEmoticonHashMap.put("[ecb]",R.mipmap.ecb);
+        sQqEmoticonHashMap.put("[ecy]",R.mipmap.ecy);
+        sQqEmoticonHashMap.put("[ebu]",R.mipmap.ebu);
+        sQqEmoticonHashMap.put("[ebr]",R.mipmap.ebr);
+        sQqEmoticonHashMap.put("[ecc]",R.mipmap.ecc);
+        sQqEmoticonHashMap.put("[eft]",R.mipmap.eft);
+        sQqEmoticonHashMap.put("[ecr]",R.mipmap.ecr);
+        sQqEmoticonHashMap.put("[ebs]",R.mipmap.ebs);
+        sQqEmoticonHashMap.put("[ech]",R.mipmap.ech);
+        sQqEmoticonHashMap.put("[ecg]",R.mipmap.ecg);
+        sQqEmoticonHashMap.put("[ebh]",R.mipmap.ebh);
+        sQqEmoticonHashMap.put("[ebg]",R.mipmap.ebg);
+        sQqEmoticonHashMap.put("[ecp]",R.mipmap.ecp);
+        sQqEmoticonHashMap.put("[deg]",R.mipmap.deg);
+        sQqEmoticonHashMap.put("[ecd]",R.mipmap.ecd);
+        sQqEmoticonHashMap.put("[ecj]",R.mipmap.ecj);
+        sQqEmoticonHashMap.put("[ebv]",R.mipmap.ebv);
+        sQqEmoticonHashMap.put("[ece]",R.mipmap.ece);
+        sQqEmoticonHashMap.put("[ebl]",R.mipmap.ebl);
+        sQqEmoticonHashMap.put("[eca]",R.mipmap.eca);
+        sQqEmoticonHashMap.put("[ecn]",R.mipmap.ecn);
+        sQqEmoticonHashMap.put("[eco]",R.mipmap.eco);
+        sQqEmoticonHashMap.put("[eeo]",R.mipmap.eeo);
+        sQqEmoticonHashMap.put("[eep]",R.mipmap.eep);
+        sQqEmoticonHashMap.put("[eci]",R.mipmap.eci);
+        sQqEmoticonHashMap.put("[ebj]",R.mipmap.ebj);
+        sQqEmoticonHashMap.put("[eer]",R.mipmap.eer);
+        sQqEmoticonHashMap.put("[edi]",R.mipmap.edi);
+        sQqEmoticonHashMap.put("[ebq]",R.mipmap.ebq);
+        sQqEmoticonHashMap.put("[eeq]",R.mipmap.eeq);
+        sQqEmoticonHashMap.put("[ecq]",R.mipmap.ecq);
+        sQqEmoticonHashMap.put("[ebt]",R.mipmap.ebt);
+        sQqEmoticonHashMap.put("[ede]",R.mipmap.ede);
+        sQqEmoticonHashMap.put("[eew]",R.mipmap.eew);
+        sQqEmoticonHashMap.put("[eex]",R.mipmap.eex);
+        sQqEmoticonHashMap.put("[dga]",R.mipmap.dga);
+        sQqEmoticonHashMap.put("[ebp]",R.mipmap.ebp);
+        sQqEmoticonHashMap.put("[ebo]",R.mipmap.ebo);
     }
 }
 

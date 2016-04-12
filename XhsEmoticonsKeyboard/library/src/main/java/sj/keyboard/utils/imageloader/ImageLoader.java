@@ -8,12 +8,15 @@ import android.widget.ImageView;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class ImageLoader implements ImageBase {
 
     protected final Context context;
 
     private volatile static ImageLoader instance;
+    private volatile static Pattern NUMBER_PATTERN = Pattern.compile("[0-9]*");
 
     public static ImageLoader getInstance(Context context) {
         if (instance == null) {
@@ -56,6 +59,11 @@ public class ImageLoader implements ImageBase {
                 return;
             case UNKNOWN:
             default:
+                Matcher m = NUMBER_PATTERN.matcher(uriStr);
+                if (m.matches()) {
+                    displayImageFromResource(Integer.parseInt(uriStr), imageView);
+                    return;
+                }
                 displayImageFromOtherSource(uriStr, imageView);
                 return;
         }
@@ -120,6 +128,18 @@ public class ImageLoader implements ImageBase {
         if (resID <= 0) {
             resID = context.getResources().getIdentifier(drawableIdString, "drawable", context.getPackageName());
         }
+        if (resID > 0 && imageView != null) {
+            imageView.setImageResource(resID);
+        }
+    }
+
+    /**
+     * From Resource
+     *
+     * @param resID
+     * @param imageView
+     */
+    protected void displayImageFromResource(int resID, ImageView imageView) {
         if (resID > 0 && imageView != null) {
             imageView.setImageResource(resID);
         }

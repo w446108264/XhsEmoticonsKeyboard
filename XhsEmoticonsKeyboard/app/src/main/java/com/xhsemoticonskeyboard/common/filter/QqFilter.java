@@ -3,7 +3,6 @@ package com.xhsemoticonskeyboard.common.filter;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.text.Spannable;
-import android.text.TextUtils;
 import android.widget.EditText;
 
 import com.sj.emoji.EmojiDisplayListener;
@@ -34,8 +33,8 @@ public class QqFilter extends EmoticonFilter {
         if (m != null) {
             while (m.find()) {
                 String key = m.group();
-                String icon = DefQqEmoticons.sQqEmoticonHashMap.get(key);
-                if (!TextUtils.isEmpty(icon)) {
+                int icon = DefQqEmoticons.sQqEmoticonHashMap.get(key);
+                if (icon > 0) {
                     emoticonDisplay(editText.getContext(), editText.getText(), icon, emoticonSize, start + m.start(), start + m.end());
                 }
             }
@@ -47,13 +46,13 @@ public class QqFilter extends EmoticonFilter {
         if (m != null) {
             while (m.find()) {
                 String key = m.group();
-                String icon = DefQqEmoticons.sQqEmoticonHashMap.get(key);
+                int icon = DefQqEmoticons.sQqEmoticonHashMap.get(key);
                 if (emojiDisplayListener == null) {
-                    if (!TextUtils.isEmpty(icon)) {
+                    if (icon > 0) {
                         emoticonDisplay(context, spannable, icon, fontSize, m.start(), m.end());
                     }
                 } else {
-                    emojiDisplayListener.onEmojiDisplay(context, spannable, icon, fontSize, m.start(), m.end());
+                    emojiDisplayListener.onEmojiDisplay(context, spannable, "" + icon, fontSize, m.start(), m.end());
                 }
             }
         }
@@ -70,8 +69,8 @@ public class QqFilter extends EmoticonFilter {
         }
     }
 
-    public static void emoticonDisplay(Context context, Spannable spannable, String emoticonName, int fontSize, int start, int end) {
-        Drawable drawable = getDrawable(context, emoticonName);
+    public static void emoticonDisplay(Context context, Spannable spannable, int emoticon, int fontSize, int start, int end) {
+        Drawable drawable = getDrawable(context, emoticon);
         if (drawable != null) {
             int itemHeight;
             int itemWidth;

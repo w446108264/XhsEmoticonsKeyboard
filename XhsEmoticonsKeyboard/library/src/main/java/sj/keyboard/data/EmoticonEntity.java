@@ -22,6 +22,10 @@ public class EmoticonEntity {
         this.mIconUri = iconUri;
     }
 
+    public void setIconUri(int iconUri) {
+        this.mIconUri = "" + iconUri;
+    }
+
     public String getContent() {
         return mContent;
     }

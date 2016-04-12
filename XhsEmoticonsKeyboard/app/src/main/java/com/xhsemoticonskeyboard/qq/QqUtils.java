@@ -86,14 +86,14 @@ public class QqUtils extends SimpleCommonUtils {
 
         PageSetEntity pageSetEntity1 = new PageSetEntity.Builder()
                 .addPageEntity(new PageEntity(new SimpleQqGridView(context)))
-                .setIconUri(ImageBase.Scheme.DRAWABLE.toUri("dec"))
+                .setIconUri(R.mipmap.dec)
                 .setShowIndicator(false)
                 .build();
         pageSetAdapter.add(pageSetEntity1);
 
         PageSetEntity pageSetEntity2 = new PageSetEntity.Builder()
                 .addPageEntity(new PageEntity(new SimpleQqGridView(context)))
-                .setIconUri(ImageBase.Scheme.DRAWABLE.toUri("mwi"))
+                .setIconUri(R.mipmap.mwi)
                 .setShowIndicator(false)
                 .build();
         pageSetAdapter.add(pageSetEntity2);
@@ -106,7 +106,7 @@ public class QqUtils extends SimpleCommonUtils {
                 = new EmoticonPageSetEntity.Builder()
                 .setLine(3)
                 .setRow(7)
-                .setEmoticonList(ParseDataUtils.ParseXhsData(DefQqEmoticons.qqEmoticonArray, ImageBase.Scheme.DRAWABLE))
+                .setEmoticonList(ParseDataUtils.ParseQqData(DefQqEmoticons.sQqEmoticonHashMap))
                 .setIPageViewInstantiateItem(new PageViewInstantiateListener<EmoticonPageEntity>() {
                     @Override
                     public View instantiateItem(ViewGroup container, int position, EmoticonPageEntity pageEntity) {

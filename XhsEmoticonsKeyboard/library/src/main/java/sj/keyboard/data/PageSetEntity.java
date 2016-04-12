@@ -74,6 +74,11 @@ public class PageSetEntity<T extends PageEntity> implements Serializable {
             return this;
         }
 
+        public Builder setIconUri(int iconUri) {
+            this.iconUri = "" + iconUri;
+            return this;
+        }
+
         public Builder setSetName(String setName) {
             this.setName = setName;
             return this;

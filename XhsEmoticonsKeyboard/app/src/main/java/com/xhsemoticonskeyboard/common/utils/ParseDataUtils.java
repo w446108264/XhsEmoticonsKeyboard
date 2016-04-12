@@ -8,12 +8,33 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 import sj.keyboard.data.EmoticonEntity;
 import sj.keyboard.data.EmoticonPageSetEntity;
 import sj.keyboard.utils.imageloader.ImageBase;
 
 public class ParseDataUtils {
+
+    public static ArrayList<EmoticonEntity> ParseQqData(HashMap<String, Integer> data) {
+        Iterator iter = data.entrySet().iterator();
+        if(!iter.hasNext()){
+            return null;
+        }
+        ArrayList<EmoticonEntity> emojis = new ArrayList<>();
+        while (iter.hasNext()) {
+            Map.Entry entry = (Map.Entry) iter.next();
+            Object key = entry.getKey();
+            Object val = entry.getValue();
+            EmoticonEntity entity = new EmoticonEntity();
+            entity.setContent((String) key);
+            entity.setIconUri("" + val);
+            emojis.add(entity);
+        }
+        return emojis;
+    }
 
     public static ArrayList<EmoticonEntity> ParseXhsData(String[] arry, ImageBase.Scheme scheme) {
         try {
