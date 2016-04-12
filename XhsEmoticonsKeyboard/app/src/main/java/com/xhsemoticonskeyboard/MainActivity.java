@@ -1,8 +1,15 @@
 package com.xhsemoticonskeyboard;
 
+import android.Manifest;
+import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
@@ -24,6 +31,38 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        if (!checkPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)) {
+            new AlertDialog.Builder(this)
+                    .setMessage("为了在Android M上正常解压和加载表情,需要您的授权.")
+                    .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            showPermissionDialog(MainActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE);
+                        }
+                    })
+                    .show();
+        }
+    }
+
+    public static final int REQUEST_CODE_ASK_PERMISSIONS = 100;
+
+    public static boolean checkPermission(final Activity activity, final String permission){
+        if(Build.VERSION.SDK_INT >= 23) {
+            int storagePermission = ActivityCompat.checkSelfPermission(activity, permission);
+            if (storagePermission != PackageManager.PERMISSION_GRANTED) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static void showPermissionDialog(final Activity activity,String permission) {
+        if (!ActivityCompat.shouldShowRequestPermissionRationale(activity,permission)) {
+            ActivityCompat.requestPermissions(activity, new String[]{permission},REQUEST_CODE_ASK_PERMISSIONS);
+            return;
+        }
+        ActivityCompat.requestPermissions(activity,new String[]{permission},REQUEST_CODE_ASK_PERMISSIONS);
     }
 
     @OnClick(R.id.btn_simple_comment) void btn_simple_comment() {
