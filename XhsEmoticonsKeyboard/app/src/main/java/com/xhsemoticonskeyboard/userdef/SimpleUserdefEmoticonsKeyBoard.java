@@ -45,6 +45,14 @@ public class SimpleUserdefEmoticonsKeyBoard extends XhsEmoticonsKeyBoard {
     }
 
     @Override
+    public void OnSoftClose() {
+        super.OnSoftClose();
+        if (mLyKvml.getCurrentFuncKey() == FUNC_TYPE_APPPS) {
+            setFuncViewHeight(EmoticonsKeyboardUtils.dip2px(getContext(), APPS_HEIGHT));
+        }
+    }
+
+    @Override
     protected void showText() {
         mEtChat.setVisibility(VISIBLE);
         mBtnFace.setVisibility(VISIBLE);
