@@ -130,9 +130,9 @@ ekBar.setAdapter(pageSetAdapter);
 
  
  
-# Layout Tree 「 [SVG high definition](https://github.com/w446108264/XhsEmoticonsKeyboard/raw/master/output/treeview.svg) 」
+# Simple Default Keyboard Layout Tree 「 [SVG high definition](http://www.shengjun.so/treeview.svg) 」
 
-<img src="output/treeview.png" width="100%" /> 
+<img src="output/treeview.svg" width="100%" /> 
 
 
 # Contact & Help
