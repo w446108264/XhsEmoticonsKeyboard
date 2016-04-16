@@ -57,7 +57,7 @@ and:
 
 ```xml
 dependencies { 
-    compile 'com.github.w446108264:XhsEmoticonsKeyboard:2.0.1'
+    compile 'com.github.w446108264:XhsEmoticonsKeyboard:2.0.2'
 }
 ```
 

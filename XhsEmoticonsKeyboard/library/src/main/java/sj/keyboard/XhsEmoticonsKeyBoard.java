@@ -7,7 +7,6 @@ import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -307,14 +306,29 @@ public class XhsEmoticonsKeyBoard extends AutoHeightLayout implements View.OnCli
     }
 
     public boolean dispatchKeyEventInFullScreen(KeyEvent event) {
+        if(event == null){
+            return false;
+        }
         switch (event.getKeyCode()) {
             case KeyEvent.KEYCODE_BACK:
                 if (EmoticonsKeyboardUtils.isFullScreen((Activity) getContext()) && mLyKvml.isShown()) {
                     reset();
                     return true;
                 }
+            default:
+                if(event.getAction() == KeyEvent.ACTION_DOWN){
+                    boolean isFocused;
+                    if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+                        isFocused = mEtChat.getShowSoftInputOnFocus();
+                    } else {
+                        isFocused = mEtChat.isFocused();
+                    }
+                    if(isFocused){
+                        mEtChat.onKeyDown(event.getKeyCode(), event);
+                    }
+                }
+                return false;
         }
-        return false;
     }
 
     public EmoticonsEditText getEtChat() { return mEtChat; }

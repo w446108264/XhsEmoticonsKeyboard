@@ -205,6 +205,7 @@ public class QqEmoticonsKeyBoard extends AutoHeightLayout implements EmoticonsFu
         LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) lyKvml.getLayoutParams();
         params.height = height;
         lyKvml.setLayoutParams(params);
+        OnSoftPop(height);
     }
 
     @Override
