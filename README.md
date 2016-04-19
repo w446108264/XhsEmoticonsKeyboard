@@ -14,12 +14,9 @@
 * 默认微信键盘样式
 * 赠QQ键盘高仿,不谢
 
-
-# Emoji
-
-「 [w446108264/AndroidEmoji](https://github.com/w446108264/AndroidEmoji) 」
+![Art](https://github.com/w446108264/XhsEmoticonsKeyboard/raw/master/output/show.gif)
  
-## Screen Recrod
+# Screen Recrod
 
 <img src="output/chat-qqemoticon.png" width="32%" /> 
 <img src="output/chat-qqplug.png" width="32%" /> 
@@ -33,12 +30,19 @@
 <img src="output/chat-text.png" width="32%" />
 <img src="output/simple-comment.png" width="32%" /> 
 <img src="output/main.png" width="32%" />  
+ 
+# Emoji
+「[w446108264/AndroidEmoji](https://github.com/w446108264/AndroidEmoji)」
 
+<img src="https://raw.githubusercontent.com/w446108264/AndroidEmoji/master/output/emoji-system-little.png" width="12%" />
+<img src="output/https://raw.githubusercontent.com/w446108264/AndroidEmoji/master/output/emoji-common-little.png" width="12%" /> 
+<img src="https://raw.githubusercontent.com/w446108264/AndroidEmoji/master/output/emoji-all-little.png" width="12%" /> 
   
 # Samples APK
 
 You can [download a sample APK](https://github.com/w446108264/XhsEmoticonsKeyboard/raw/master/output/simple.apk) 
 
+<img src="output/qc.png" width="22%" /> 
 
 # Gradle Dependency
 
@@ -130,7 +134,7 @@ ekBar.setAdapter(pageSetAdapter);
 
  
  
-# Simple Default Keyboard Layout Tree 「 [SVG high definition](http://www.shengjun.so/treeview.svg) 」
+# Simple Default Keyboard Layout Tree 「 [SVG high definition](http://www.shengjun.red/treeview.svg) 」
 
 <img src="output/treeview.png" width="100%" /> 
 
