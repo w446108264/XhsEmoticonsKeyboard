@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
@@ -20,6 +21,8 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/view_spit"
         android:gravity="center"
+        app:bmpNomal="@drawable/indicator_point_nomal"
+        app:bmpSelect="@drawable/indicator_point_select"
         android:orientation="horizontal"
         android:paddingBottom="@dimen/indicator_margin" />
 
@@ -30,7 +33,7 @@
         android:layout_height="@dimen/horizontalspit_view_height"
         android:layout_above="@+id/view_etv" />
 
-    <com.xhsemoticonskeyboard.qq.QqEmoticonsToolBarView
+    <sj.keyboard.widget.EmoticonsToolBarView
         android:id="@+id/view_etv"
         android:layout_width="match_parent"
         android:layout_height="@dimen/bar_height"

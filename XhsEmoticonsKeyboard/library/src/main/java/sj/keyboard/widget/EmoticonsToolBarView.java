@@ -12,7 +12,6 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import com.keyboard.view.R;
-import com.nineoldandroids.view.ViewHelper;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -161,7 +160,7 @@ public class EmoticonsToolBarView extends RelativeLayout {
                 public void run() {
                     int mScrollX = hsv_toolbar.getScrollX();
 
-                    int childX = (int) ViewHelper.getX(ly_tool.getChildAt(position));
+                    int childX = ly_tool.getChildAt(position).getLeft();
 
                     if (childX < mScrollX) {
                         hsv_toolbar.scrollTo(childX, 0);
