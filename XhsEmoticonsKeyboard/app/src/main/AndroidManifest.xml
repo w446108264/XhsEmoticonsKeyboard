@@ -27,6 +27,9 @@
             android:name=".activity.SimpleChatActivity"
             android:theme="@style/XhsEmoticonsKeyboardTheme.NoTitle" />
         <activity
+            android:name=".activity.SimpleTranslucentChatActivity"
+            android:theme="@style/XhsEmoticonsKeyboardTheme.NoTitle" />
+        <activity
             android:name=".activity.SimpleChatOnCoordinatorLayoutActivity"
             android:theme="@style/XhsEmoticonsKeyboardTheme.NoTitle" />
         <activity

@@ -16,6 +16,7 @@ import android.support.v7.widget.Toolbar;
 import com.xhsemoticonskeyboard.activity.SimpleChatActivity;
 import com.xhsemoticonskeyboard.activity.SimpleChatOnCoordinatorLayoutActivity;
 import com.xhsemoticonskeyboard.activity.SimpleCommentActivity;
+import com.xhsemoticonskeyboard.activity.SimpleTranslucentChatActivity;
 import com.xhsemoticonskeyboard.qq.QqActivity;
 import com.xhsemoticonskeyboard.userdef.SimpleChatUserDefActivity;
 
@@ -69,8 +70,12 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(MainActivity.this, SimpleCommentActivity.class));
     }
 
-    @OnClick(R.id.btn_simple_chat) void btn_simple_chat() {
+    @OnClick(R.id.btn_simple_chat_fullscreen) void btn_simple_chat_fullscreen() {
         startActivity(new Intent(MainActivity.this, SimpleChatActivity.class));
+    }
+
+    @OnClick(R.id.btn_simple_chat_translucent) void btn_simple_chat_translucent() {
+        startActivity(new Intent(MainActivity.this, SimpleTranslucentChatActivity.class));
     }
 
     @OnClick(R.id.btn_simple_chat_coordinatorlayout) void btn_simple_chat_coordinatorlayout() {

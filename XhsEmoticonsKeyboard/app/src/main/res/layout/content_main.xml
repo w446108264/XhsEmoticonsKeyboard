@@ -22,20 +22,30 @@
             android:textAllCaps="false" />
 
         <Button
-            android:id="@+id/btn_simple_chat"
+            android:id="@+id/btn_simple_chat_fullscreen"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/btn_simple_comment"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
-            android:text="Simple Chat Keyboard"
+            android:text="Simple FullScreen Chat Keyboard"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btn_simple_chat_translucent"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btn_simple_chat_fullscreen"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:text="Simple Translucent Chat Keyboard"
             android:textAllCaps="false" />
 
         <Button
             android:id="@+id/btn_simple_chat_coordinatorlayout"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/btn_simple_chat"
+            android:layout_below="@+id/btn_simple_chat_translucent"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
             android:text="Simple Chat CoordinatorLayout Keyboard"
