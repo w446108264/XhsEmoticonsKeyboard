@@ -13,10 +13,10 @@ import java.util.List;
 public class SoftKeyboardSizeWatchLayout extends RelativeLayout {
 
     private Context mContext;
-    private boolean mIsSoftKeyboardPop = false;
-    private int mScreenHeight = 0;
     private int mOldh = -1;
     private int mNowh = -1;
+    protected int mScreenHeight = 0;
+    protected boolean mIsSoftKeyboardPop = false;
 
     public SoftKeyboardSizeWatchLayout(Context context, AttributeSet attrs) {
         super(context, attrs);

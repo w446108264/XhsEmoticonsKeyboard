@@ -1,6 +1,9 @@
 package sj.keyboard.widget;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.res.Configuration;
+import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,9 +16,10 @@ public abstract class AutoHeightLayout extends SoftKeyboardSizeWatchLayout imple
 
     private static final int ID_CHILD = R.id.id_autolayout;
 
-    protected int mSoftKeyboardHeight;
-    protected int mMaxParentHeight;
     protected Context mContext;
+    protected int mMaxParentHeight;
+    protected int mSoftKeyboardHeight;
+    protected boolean mConfigurationChangedFlag = false;
 
     public AutoHeightLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -66,7 +70,25 @@ public abstract class AutoHeightLayout extends SoftKeyboardSizeWatchLayout imple
     }
 
     @Override
+    protected void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        mConfigurationChangedFlag = true;
+        mScreenHeight = 0;
+    }
+
+    @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        if(mConfigurationChangedFlag){
+            mConfigurationChangedFlag = false;
+            Rect r = new Rect();
+            ((Activity) mContext).getWindow().getDecorView().getWindowVisibleDisplayFrame(r);
+            if (mScreenHeight == 0) {
+                mScreenHeight = r.bottom;
+            }
+            int mNowh = mScreenHeight - r.bottom;
+            mMaxParentHeight = mNowh;
+        }
+
         if (mMaxParentHeight != 0) {
             int heightMode = MeasureSpec.getMode(heightMeasureSpec);
             int expandSpec = MeasureSpec.makeMeasureSpec(mMaxParentHeight, heightMode);
