@@ -25,5 +25,6 @@ dependencies {
     compile 'com.android.support:appcompat-v7:23.3.0'
 
     compile 'com.github.w446108264:XhsEmoticonsKeyboard:2.0.3'
-    compile 'com.github.w446108264:AndroidEmoji:1.0.0'
+    compile 'com.github.w446108264:AndroidEmoji:1.3-withsource'
+
 }

@@ -1,5 +1,6 @@
 package com.simple2;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
@@ -41,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
 
         // source data
         ArrayList<EmojiBean> emojiArray = new ArrayList<>();
-        Collections.addAll(emojiArray, DefEmoticons.sEmojiArray);
+        Collections.addAll(emojiArray, DefEmoticons.getDefEmojiArray());
 
         // emoticon click
         final EmoticonClickListener emoticonClickListener = new EmoticonClickListener() {
@@ -142,7 +143,22 @@ public class MainActivity extends AppCompatActivity {
                 if (m != null) {
                     while (m.find()) {
                         String emojiHex = Integer.toHexString(Character.codePointAt(m.group(), 0));
-                        EmojiDisplay.emojiDisplay(editText.getContext(), editText.getText(), emojiHex, emojiSize, start + m.start(), start + m.end());
+                        Drawable drawable = getDrawable(editText.getContext(), EmojiDisplay.HEAD_NAME + emojiHex);
+                        if(drawable != null) {
+                            int itemHeight;
+                            int itemWidth;
+                            if(emojiSize == EmojiDisplay.WRAP_DRAWABLE) {
+                                itemHeight = drawable.getIntrinsicHeight();
+                                itemWidth = drawable.getIntrinsicWidth();
+                            } else {
+                                itemHeight = emojiSize;
+                                itemWidth = emojiSize;
+                            }
+
+                            drawable.setBounds(0, 0, itemHeight, itemWidth);
+                            EmojiSpan imageSpan = new EmojiSpan(drawable);
+                            editText.getText().setSpan(imageSpan, start + m.start(), start + m.end(), Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
+                        }
                     }
                 }
             }
