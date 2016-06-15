@@ -23,7 +23,7 @@ public class EmoticonsToolBarView extends RelativeLayout {
 
     protected LayoutInflater mInflater;
     protected Context mContext;
-    protected ArrayList<View> mToolBtnList = new ArrayList<>();
+    protected final ArrayList<View> mToolBtnList = new ArrayList<>();
     protected int mBtnWidth;
 
     protected HorizontalScrollView hsv_toolbar;
@@ -68,6 +68,75 @@ public class EmoticonsToolBarView extends RelativeLayout {
         hsv_toolbar.setLayoutParams(hsvParams);
     }
 
+    public View addFixedToolItemView(boolean isRight, int rec, final PageSetEntity pageSetEntity, OnClickListener onClickListener) {
+        View toolBtnView = getCommonItemToolBtn();
+        LayoutParams params = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT);
+        LayoutParams hsvParams = (LayoutParams) hsv_toolbar.getLayoutParams();
+        if (toolBtnView.getId() <= 0) {
+            toolBtnView.setId(isRight ? R.id.id_toolbar_right : R.id.id_toolbar_left);
+        }
+        if (isRight) {
+            params.addRule(ALIGN_PARENT_RIGHT);
+            hsvParams.addRule(LEFT_OF, toolBtnView.getId());
+        } else {
+            params.addRule(ALIGN_PARENT_LEFT);
+            hsvParams.addRule(RIGHT_OF, toolBtnView.getId());
+        }
+        addView(toolBtnView, params);
+        hsv_toolbar.setLayoutParams(hsvParams);
+        initItemToolBtn(toolBtnView, rec, pageSetEntity, onClickListener);
+        return toolBtnView;
+    }
+
+    public View addToolItemView(PageSetEntity pageSetEntity) {
+        return addToolItemView(0, pageSetEntity, null);
+    }
+
+    public View addToolItemView(int rec, OnClickListener onClickListener) {
+        return addToolItemView(rec, null, onClickListener);
+    }
+
+    public View addToolItemView(int rec, final PageSetEntity pageSetEntity, OnClickListener onClickListener) {
+        View toolBtnView = getCommonItemToolBtn();
+        if(pageSetEntity != null) {
+            toolBtnView.setTag(R.id.id_toolbar_uuid, pageSetEntity.getUuid());
+        }
+        initItemToolBtn(toolBtnView, rec, pageSetEntity, onClickListener);
+        ly_tool.addView(toolBtnView);
+        mToolBtnList.add(getToolBgBtn(toolBtnView));
+        return toolBtnView;
+    }
+
+    public void clear() {
+        mToolBtnList.clear();
+        hsv_toolbar.removeAllViews();
+    }
+
+    public void remove(PageSetEntity pageSetEntity) {
+        if(pageSetEntity == null) {
+            return;
+        }
+        String uuid = pageSetEntity.getUuid();
+        if(TextUtils.isEmpty(uuid)) {
+            return;
+        }
+
+        for(int i = 0 ; i < ly_tool.getChildCount(); i++) {
+            if(uuid.equals(ly_tool.getChildAt(i).getTag(R.id.id_toolbar_uuid))){
+                mToolBtnList.remove(ly_tool.getChildAt(i));
+                ly_tool.removeView(ly_tool.getChildAt(i));
+            }
+        }
+    }
+
+    public void removeFixed(boolean isLeft) {
+        int id = isLeft ? R.id.id_toolbar_left : R.id.id_toolbar_right;
+        View view = hsv_toolbar.findViewById(id);
+        if(view != null) {
+            hsv_toolbar.removeView(view);
+        }
+    }
+
     protected View getCommonItemToolBtn() {
         return mInflater == null ? null : mInflater.inflate(R.layout.item_toolbtn, null);
     }
@@ -99,40 +168,6 @@ public class EmoticonsToolBarView extends RelativeLayout {
 
     protected View getToolBgBtn(View parentView) {
         return  parentView.findViewById(R.id.iv_icon);
-    }
-
-    public void addFixedToolItemView(boolean isRight, int rec, final PageSetEntity pageSetEntity, OnClickListener onClickListener) {
-        View toolBtnView = getCommonItemToolBtn();
-        LayoutParams params = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT);
-        LayoutParams hsvParams = (LayoutParams) hsv_toolbar.getLayoutParams();
-        if (toolBtnView.getId() <= 0) {
-            toolBtnView.setId(isRight ? R.id.id_toolbar_right : R.id.id_toolbar_left);
-        }
-        if (isRight) {
-            params.addRule(ALIGN_PARENT_RIGHT);
-            hsvParams.addRule(LEFT_OF, toolBtnView.getId());
-        } else {
-            params.addRule(ALIGN_PARENT_LEFT);
-            hsvParams.addRule(RIGHT_OF, toolBtnView.getId());
-        }
-        addView(toolBtnView, params);
-        hsv_toolbar.setLayoutParams(hsvParams);
-        initItemToolBtn(toolBtnView, rec, pageSetEntity, onClickListener);
-    }
-
-    public void addToolItemView(PageSetEntity pageSetEntity) {
-        addToolItemView(0, pageSetEntity, null);
-    }
-
-    public void addToolItemView(int rec, OnClickListener onClickListener) {
-        addToolItemView(rec, null, onClickListener);
-    }
-
-    public void addToolItemView(int rec, final PageSetEntity pageSetEntity, OnClickListener onClickListener) {
-        View toolBtnView = getCommonItemToolBtn();
-        initItemToolBtn(toolBtnView, rec, pageSetEntity, onClickListener);
-        ly_tool.addView(toolBtnView);
-        mToolBtnList.add(getToolBgBtn(toolBtnView));
     }
 
     public void setToolBtnSelect(String uuid) {

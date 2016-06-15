@@ -4,4 +4,5 @@
     <item type="id" name="id_tag_pageset" />
     <item type="id" name="id_toolbar_left" />
     <item type="id" name="id_toolbar_right" />
+    <item type="id" name="id_toolbar_uuid" />
 </resources>
