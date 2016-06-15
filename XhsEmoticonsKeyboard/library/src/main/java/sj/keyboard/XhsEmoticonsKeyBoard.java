@@ -141,6 +141,9 @@ public class XhsEmoticonsKeyBoard extends AutoHeightLayout implements View.OnCli
             ArrayList<PageSetEntity> pageSetEntities = pageSetAdapter.getPageSetEntityList();
             if (pageSetEntities != null) {
                 for (PageSetEntity pageSetEntity : pageSetEntities) {
+                    if(mEmoticonsToolBarView.containsKey(pageSetEntity)) {
+                        continue;
+                    }
                     mEmoticonsToolBarView.addToolItemView(pageSetEntity);
                 }
             }

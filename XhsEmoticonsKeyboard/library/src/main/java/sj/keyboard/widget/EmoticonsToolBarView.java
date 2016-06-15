@@ -107,6 +107,23 @@ public class EmoticonsToolBarView extends RelativeLayout {
         return toolBtnView;
     }
 
+    public boolean containsKey(PageSetEntity pageSetEntity) {
+        if(pageSetEntity == null) {
+            return false;
+        }
+        String uuid = pageSetEntity.getUuid();
+        if(TextUtils.isEmpty(uuid)) {
+            return false;
+        }
+
+        for(int i = 0 ; i < ly_tool.getChildCount(); i++) {
+            if(uuid.equals(ly_tool.getChildAt(i).getTag(R.id.id_toolbar_uuid))){
+                return true;
+            }
+        }
+        return false;
+    }
+
     public void clear() {
         mToolBtnList.clear();
         hsv_toolbar.removeAllViews();
