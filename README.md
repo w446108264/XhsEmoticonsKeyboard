@@ -32,19 +32,24 @@
 <img src="output/main.png" width="32%" />  
  
 # Emoji
-「[w446108264/AndroidEmoji](https://github.com/w446108264/AndroidEmoji)」
+a lib about emoji -> 「[w446108264/AndroidEmoji](https://github.com/w446108264/AndroidEmoji)」
 
-<img src="https://raw.githubusercontent.com/w446108264/AndroidEmoji/master/output/emoji-system-little.png" width="12%" />
-<img src="https://raw.githubusercontent.com/w446108264/AndroidEmoji/master/output/emoji-common-little.png" width="12%" /> 
-<img src="https://raw.githubusercontent.com/w446108264/AndroidEmoji/master/output/emoji-all-little.png" width="12%" /> 
+<img src="https://github.com/w446108264/AndroidEmoji/raw/master/output/emoji_system.png" width="19%"/>
+<img src="https://github.com/w446108264/AndroidEmoji/raw/master/output/emoji_apple.png" width="19%" />
+<img src="https://github.com/w446108264/AndroidEmoji/raw/master/output/emoji_google.png" width="19%"/>
+<img src="https://github.com/w446108264/AndroidEmoji/raw/master/output/emoji_twitter.png" width="19%"/>
+<img src="https://github.com/w446108264/AndroidEmoji/raw/master/output/emoji_emojione.png" width="19%"/>
   
 # Samples APK
 
 You can [download a sample APK](https://github.com/w446108264/XhsEmoticonsKeyboard/raw/master/output/simple.apk) 
 
-[Simple2](https://github.com/w446108264/XhsEmoticonsKeyboard/raw/master/output/simple2.apk) 
-
 <img src="output/qc.png" width="22%" /> 
+
+or 
+
+[Simple2 APK](https://github.com/w446108264/XhsEmoticonsKeyboard/raw/master/output/simple2.apk) 
+
 
 # Gradle Dependency
 
